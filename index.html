@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guðni Nathan Gunnarsson | Games Programmer</title>
+    <style>
+        /* Color Palette & Variables */
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-card: #1f2833;
+            --text-main: #c5c6c7;
+            --text-muted: #8b929a;
+            --accent-neon: #66fcf1;
+            --accent-hover: #45a29e;
+            --border-radius: 8px;
+        }
+
+        /* Base Styles */
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            margin-top: 0;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-neon);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Profile Section */
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent-neon);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .headshot-container {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-neon);
+            margin-right: 40px;
+            background-color: #2a3644; /* Fallback color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .headshot-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .headshot-placeholder-text {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .header-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .header-info .subtitle {
+            font-size: 1.2em;
+            color: var(--accent-neon);
+            margin-bottom: 15px;
+            font-family: monospace;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.95em;
+            color: var(--text-muted);
+        }
+
+        /* Content Sections */
+        .section {
+            background-color: var(--bg-card);
+            padding: 30px 40px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-neon);
+        }
+
+        /* Highlights */
+        .highlight {
+            color: var(--accent-neon);
+            font-weight: 600;
+        }
+
+        /* Experience & Education Entries */
+        .entry {
+            margin-bottom: 25px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .entry-title {
+            font-size: 1.2em;
+            color: #ffffff;
+        }
+
+        .entry-company {
+            color: var(--accent-hover);
+            font-weight: 500;
+        }
+
+        .entry-date {
+            font-size: 0.9em;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills specific (Updated for CSS Grid) */
+        .skills-list {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 15px 20px; /* 15px row gap, 20px column gap */
+            align-items: baseline;
+        }
+
+        .skills-list strong {
+            color: #ffffff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .headshot-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .entry-header {
+                flex-direction: column;
+            }
+            .skills-list {
+                grid-template-columns: 1fr;
+                gap: 5px 0; /* Tighten up spacing for stacked view */
+            }
+            .skills-list strong {
+                margin-top: 10px; /* Add spacing above categories on mobile */
+            }
+            .skills-list strong:first-child {
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="headshot-container">
+            <img src="gudni.jpg" alt="Guðni Nathan Gunnarsson" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="headshot-placeholder-text" style="display: none;">Add Image (150x150)</div>
+        </div>
+        <div class="header-info">
+            <h1>Guðni Nathan Gunnarsson</h1>
+            <div class="subtitle">&gt; Games Programmer</div>
+            <div class="contact-info">
+                <span>📍 Based in Iceland</span>
+                <span>📱 gudninathan on Discord</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <ul>
+            <li>A dedicated <span class="highlight">Games Programmer</span> with over <span class="highlight">3 years of professional experience</span> in <span class="highlight">Unreal Engine</span>, driven to create software that has a lasting positive effect.</li>
+            <li>Successfully shipped the AA action-adventure title <em class="highlight">Echoes of the End</em> (released August 2025).</li>
+            <li>Specialized in <span class="highlight">C++</span>, <span class="highlight">gameplay mechanics</span>, <span class="highlight">systems architecture</span>, and comprehensive <span class="highlight">UI programming</span> within Unreal Engine.</li>
+            <li>Possesses a strong academic background in <span class="highlight">Artificial Intelligence</span> and <span class="highlight">Large Language Models</span>.</li>
+            <li>Known for a solution-oriented, hard-working, and positive approach, always striving for perfection in execution.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Experience</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Gameplay, Systems & UI Programmer <span class="entry-company">@ Myrkur Games</span></div>
+                <div class="entry-date">June 2024 – Present</div>
+            </div>
+            <ul>
+                <li>Developed gameplay mechanics, engineered core systems, and spearheaded all UI programming within Unreal Engine 5 for <em>Echoes of the End</em>, a narrative action-adventure game released in August 2025.</li>
+                <li>Currently engineering new gameplay features and systems for an unannounced upcoming Myrkur Games project.</li>
+                <li>Executing ongoing bug fixes, patches, and post-launch updates for <em>Echoes of the End</em>.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Teaching Assistant <span class="entry-company">@ Princeton University</span></div>
+                <div class="entry-date">Fall 2022 – Spring 2024</div>
+            </div>
+            <ul>
+                <li>Assisted in teaching Low-Level Programming (C and Assembly) and Computer Graphics courses.</li>
+                <li>Guided students through complex technical concepts, rendering pipelines, and low-level optimizations.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">AI Programmer Internship <span class="entry-company">@ Myrkur Games</span></div>
+                <div class="entry-date">Jan 2022 – Aug 2022</div>
+            </div>
+            <ul>
+                <li>Contributed to early AI systems development during a dedicated engineering internship.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Teaching Assistant <span class="entry-company">@ Reykjavik University & Tækniskólinn</span></div>
+                <div class="entry-date">Jan 2020 – May 2022</div>
+            </div>
+            <ul>
+                <li>Instructed and assisted students in Advanced Game Design, Computer Graphics, and Databases courses.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Computer Science M.S.E. <span class="entry-company">@ Princeton University</span></div>
+                <div class="entry-date">Fall 2022 – May 2024</div>
+            </div>
+            <ul>
+                <li>Focused heavily on Artificial Intelligence and Large Language Models, including inference optimization techniques such as model distillation and quantization.</li>
+                <li>Received a full scholarship and stipend for teaching assistance.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Computer Science BSc <span class="entry-company">@ Reykjavik University</span></div>
+                <div class="entry-date">2018 – June 2021</div>
+            </div>
+            <ul>
+                <li>Completed the degree with a focus on computer games, graduating with an average grade of 9.79.</li>
+                <li>Received an award from the Icelandic association of computer scientists for academic excellence.</li>
+                <li>Appeared on the Dean's list for all six semesters and received the Alan Turing scholarship for master's studies.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-list">
+            <strong>Programming Languages:</strong>
+            <span>Proficient in C++, C, and Assembly, with extensive prior experience in C# and Python.</span>
+            
+            <strong>Other Languages:</strong>
+            <span>Experienced with Java, JavaScript, F#, and PHP.</span>
+            
+            <strong>Engines & Graphics:</strong>
+            <span>3+ years in Unreal Engine 5, with foundational experience in Unity, Godot, and raw OpenGL.</span>
+            
+            <strong>Core Competencies:</strong>
+            <span>Gameplay & Systems Programming, Unreal Engine UI Programming, Graphics Programming (Shaders), Artificial Intelligence (LLMs).</span>
+            
+            <strong>Spoken Languages:</strong>
+            <span>Speak and write both English and Icelandic natively.</span>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>
